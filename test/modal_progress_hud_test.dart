@@ -18,7 +18,7 @@ void main() {
     testWidgets('should show progress indicator when in async call',
         (tester) async {
       final inAsyncCall = true;
-      await tester.pumpWidget(sut(inAsyncCall, null));
+      await tester.pumpWidget(sut(inAsyncCall, Offset.zero));
 
       expect(find.byType(Text), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
@@ -27,7 +27,7 @@ void main() {
     testWidgets('should not show progress indicator when not in async call',
         (tester) async {
       final inAsyncCall = false;
-      await tester.pumpWidget(sut(inAsyncCall, null));
+      await tester.pumpWidget(sut(inAsyncCall, Offset.zero));
 
       expect(find.byType(Text), findsOneWidget);
       expect(find.byType(CircularProgressIndicator), findsNothing);
